@@ -1,0 +1,53 @@
+# Compiled class files
+*.class
+*.log
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Spark
+metastore_db/
+derby.log
+spark-warehouse/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Output files
+part-00000-*.parquet
+src/wildfireIntensityCounty/
+wildfireIntensityCounty/
+
+# Claude.md (instruction file)
+claude.md
+
+# Project specific
+rcher012_projectc2.zip
+part-00000-*.snappy.parquet
+
+# Large sample files (>50MB) - use Git LFS or external storage
+samples/tl_2018_us_county.zip
+samples/tl_2018_us_county.shp
+samples/wildfiredb_100k.csv.bz2
