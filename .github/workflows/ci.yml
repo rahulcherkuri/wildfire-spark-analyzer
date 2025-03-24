@@ -1,0 +1,51 @@
+name: Wildfire Analysis CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        java-version: [8, 11]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK ${{ matrix.java-version }}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ matrix.java-version }}
+        distribution: 'temurin'
+        
+    - name: Cache Maven dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+        
+    - name: Compile with Maven
+      run: mvn clean compile
+      
+    - name: Run tests
+      run: mvn test
+      
+    - name: Build JAR
+      run: mvn package
+      
+    - name: Verify JAR structure
+      run: |
+        jar tf target/rcher_projectc2-*.jar | head -20
+        ls -la target/
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: wildfire-analyzer-java${{ matrix.java-version }}
+        path: target/*.jar
