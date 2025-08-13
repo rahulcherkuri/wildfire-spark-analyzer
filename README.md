@@ -123,12 +123,4 @@ Created shapefile: wildfireIntensityCounty
 - **Memory Efficiency**: Optimized Parquet columnar storage
 - **Scalability**: Linear performance scaling across cluster nodes
 
-## 🎓 **Skills Demonstrated**
-- **Distributed Computing**: Apache Spark cluster processing
-- **Geospatial Analysis**: Shapefile integration and spatial joins
-- **Big Data Engineering**: Large-scale environmental data processing
-- **Software Engineering**: Professional Maven build system and testing
-- **Emergency Response**: Real-world application for disaster planning
-
 ---
-*Built for emergency responders and communities at risk. Every analysis could inform life-saving decisions.*
